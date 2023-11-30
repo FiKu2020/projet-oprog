@@ -13,9 +13,12 @@ users = [
 def get_users():
     return jsonify(users), 200
 
-@app.
+@app.get('/users')
 def get_users_by_id():
     if users.id in users:
         return jsonify(users), 200
 
 print(users)
+
+if __name__ == '__main__':
+    app.run()
