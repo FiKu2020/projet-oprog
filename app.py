@@ -13,10 +13,11 @@ users = [
 def get_users():
     return jsonify(users), 200
 
-@app.get('/users')
+@app.get('/users/<id>')
 def get_users_by_id():
     if users.id in users:
         return jsonify(users), 200
+
 
 print(users)
 
