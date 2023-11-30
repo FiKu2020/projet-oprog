@@ -18,7 +18,20 @@ def get_users_by_id():
     if users.id in users:
         return jsonify(users), 200
 
+@app.post('/users')
+def create_temp_users():
+    placeholder = []
+    currUserData = request.json
+    if 'name' and 'lastname' in users:
+        newUser = {
+            'id' : len(users) + 1,
+            "name": currUserData['name'],
+            "lastname": currUserData['lastname']
+        }
 
+@app.delete
+def delete_user(user_id):
+    
 print(users)
 
 if __name__ == '__main__':
