@@ -28,11 +28,19 @@ def create_temp_users():
             "name": currUserData['name'],
             "lastname": currUserData['lastname']
         }
+        users.append(newUser)
+        return newUser
 
 @app.delete
 def delete_user(user_id):
-    
-print(users)
+    if user_id in users:
+        del users[user_id]
+        return '', 204
+    else:
+        return  400
+
+
+
 
 if __name__ == '__main__':
     app.run()
